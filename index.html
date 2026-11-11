@@ -1,1 +1,88 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABUR.BUSINESSS | Бытовая техника</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f5f5;color:#171717;font-family:Arial,sans-serif}
+header{background:#111;color:white;padding:24px;text-align:center}
+header h1{margin:0;letter-spacing:2px}
+header p{color:#bbb}
+.hero{background:#222;color:white;text-align:center;padding:55px 20px}
+.hero h2{font-size:32px}
+.hero p{line-height:1.6;color:#ddd}
+.btn{display:inline-block;background:#d5b36a;color:#111;padding:13px 20px;border:0;border-radius:5px;text-decoration:none;font-weight:bold;cursor:pointer}
+section{max-width:1100px;margin:auto;padding:30px 16px}
+.title{text-align:center;margin-bottom:25px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.product{background:white;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px #0001}
+.product img{width:100%;height:190px;object-fit:contain;background:#eee}
+.info{padding:16px}
+.info h3{margin-top:0}
+.price{font-size:20px;font-weight:bold;margin:14px 0}
+.info button{width:100%}
+.details{background:#111;color:white;text-align:center;padding:35px 15px;line-height:1.8}
+.details p{margin:8px}
+footer{background:#090909;color:#aaa;text-align:center;padding:20px}
+.cart{position:fixed;right:15px;bottom:15px;background:#d5b36a;color:#111;padding:14px 18px;border-radius:30px;font-weight:bold;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+<h1>BABUR.BUSINESSS</h1>
+<p>Магазин бытовой техники</p>
+</header>
+<div class="hero">
+<h2>Техника для вашего дома</h2>
+<p>Выгодные цены • Наличный расчёт • Рассрочка</p>
+<a class="btn" href="#catalog">Открыть каталог</a>
+</div>
+<section id="catalog">
+<h2 class="title">Наш каталог</h2>
+<div class="products">
+<div class="product">
+<img src="https://placehold.co/500x350?text=Refrigerator" alt="Холодильник">
+<div class="info"><h3>Холодильник</h3><p>Техника для вашего дома.</p><div class="price">от 15 000 сом</div><button class="btn" onclick="add('Холодильник')">В корзину</button></div>
+</div>
+<div class="product">
+<img src="https://placehold.co/500x350?text=Washing+Machine" alt="Стиральная машина">
+<div class="info"><h3>Стиральная машина</h3><p>Комфорт каждый день.</p><div class="price">от 18 000 сом</div><button class="btn" onclick="add('Стиральная машина')">В корзину</button></div>
+</div>
+<div class="product">
+<img src="https://placehold.co/500x350?text=Electric+Stove" alt="Электроплита">
+<div class="info"><h3>Электроплита</h3><p>Практичная техника для кухни.</p><div class="price">от 11 000 сом</div><button class="btn" onclick="add('Электроплита')">В корзину</button></div>
+</div>
+<div class="product">
+<img src="https://placehold.co/500x350?text=Heater" alt="Обогреватель">
+<div class="info"><h3>Обогреватель</h3><p>Тепло и уют зимой.</p><div class="price">от 3 500 сом</div><button class="btn" onclick="add('Обогреватель')">В корзину</button></div>
+</div>
+</div>
+</section>
+<div class="cart" onclick="checkout()">Корзина: <span id="count">0</span></div>
+<div class="details">
+<h2>Почему выбирают нас?</h2>
+<p>✓ Наличный расчёт</p>
+<p>✓ Рассрочка: MPlus+, ZERO, MIslamic, Adal</p>
+<p>✓ Склад в районе Дордой</p>
+<p>✓ Можно приехать и выбрать товар</p>
+<p>✓ Доставка по договорённости</p>
+<a class="btn" href="https://wa.me/996505095950">Написать в WhatsApp</a>
+</div>
+<footer>© 2026 BABUR.BUSINESSS</footer>
+<script>
+let cart=[];
+function add(name){
+cart.push(name);
+document.getElementById('count').textContent=cart.length;
+alert('Добавлено в корзину!');
+}
+function checkout(){
+if(!cart.length){alert('Корзина пустая');return;}
+let msg='Здравствуйте! Хочу заказать:\n'+cart.map(x=>'• '+x).join('\n');
+window.open('https://wa.me/996505095950?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
